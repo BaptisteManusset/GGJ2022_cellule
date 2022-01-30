@@ -1,17 +1,18 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [DisallowMultipleComponent]
 public class BodyPart : MonoBehaviour {
-    [SerializeField] private bool haveNageoire = false;
-    [SerializeField] private GameObject nageoire;
-
-
-    public bool HaveNageoire {
-        get => haveNageoire;
-
-        set {
-            haveNageoire = value;
-            nageoire.SetActive(haveNageoire);
-        }
-    }
+    // private BodyController _bc;
+    //
+    // public void Setup(BodyController bc, Rigidbody2D parent) {
+    //     _bc = bc;
+    //     _bc.bodyParts.Add(this);
+    //
+    //     var j = GetComponent<HingeJoint2D>();
+    //
+    //     if (parent)
+    //         j.connectedBody = parent;
+    // }
+    //
+    // private void OnDestroy() => _bc.bodyParts.Remove(this);
 }
