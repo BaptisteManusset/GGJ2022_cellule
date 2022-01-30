@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -54,14 +55,12 @@ public class HealthManager : MonoBehaviour, IDamageable {
 
         if (currentHealth <= 0)
             if (!_alreadyDead) {
-                rb.DOKill();
                 OnDead?.Invoke();
                 _alreadyDead = true;
             }
     }
 
     public bool TakeDamage(float value, Mob agressor) {
-
         rb.PunchOnCollision(agressor.transform);
         SetHealth(currentHealth - value);
         return true;
@@ -69,6 +68,10 @@ public class HealthManager : MonoBehaviour, IDamageable {
 
     public void IncreaseHealth(float value = 1) {
         SetHealth(currentHealth + value);
+    }
+
+    private void OnDestroy() {
+        rb.DOKill();
     }
 }
 

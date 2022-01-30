@@ -1,4 +1,6 @@
 using System;
+using Bonys;
+using Toolbox.Procedural.Tentacle;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -8,7 +10,13 @@ public class Player : MonoBehaviour {
 
     public static Player Instance;
 
+    [HideInInspector] public HealthManager _healthManager;
+    private ProceduralSnake proceduralSnake;
+
     private void Awake() {
+        proceduralSnake = GetComponentInChildren<ProceduralSnake>();
+
+        _healthManager = GetComponent<HealthManager>();
         Instance = this;
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -32,5 +40,9 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Bonus")) { }
+    }
+
+    public void IncreaSize(TypeOfBodyPart pick = TypeOfBodyPart.normal) {
+        proceduralSnake.AddBodyPart(pick);
     }
 }

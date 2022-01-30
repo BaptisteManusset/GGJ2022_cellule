@@ -2,22 +2,35 @@ using DG.Tweening;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Plant : MonoBehaviour {
+public class BonusContainer : MonoBehaviour {
     private HealthManager _healthManager;
 
     private Rigidbody2D rb;
 
     private LifeType type = LifeType.plante;
 
+    [SerializeField] private bool randomSize = false;
+
+    [Space, SerializeField] Bonys.Bonus _bonus;
+
     private void Awake() {
+        if (_bonus == null) Debug.LogError("Bonus container empty", gameObject);
         _healthManager = GetComponent<HealthManager>();
         rb = GetComponent<Rigidbody2D>();
 
         _healthManager.OnHealthChange += TakeDamage;
         _healthManager.OnDead += Dead;
 
-        _healthManager.SetMaxHealth(Random.Range(1, 10));
+
+        int health = randomSize ? Random.Range(1, 10) : 1;
+
+        _healthManager.SetMaxHealth(health);
         transform.localScale = Scale;
+    }
+
+    public void Action() {
+        if (_bonus)
+            _bonus.Action();
     }
 
     public void TakeDamage() {
@@ -31,5 +44,5 @@ public class Plant : MonoBehaviour {
     }
 
 
-    private Vector3 Scale => _healthManager.GetHealth() * 0.5f * Vector3.one;
+    private Vector3 Scale => _healthManager.GetHealth() * Vector3.one;
 }

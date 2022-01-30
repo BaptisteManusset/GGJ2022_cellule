@@ -1,3 +1,4 @@
+using Toolbox.Procedural.Tentacle;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,16 +15,26 @@ public class Mob : MonoBehaviour {
 
     internal HealthManager _healthManager;
 
+    private ProceduralSnake proceduralSnake;
 
     private void Awake() {
+        proceduralSnake = GetComponentInParent<ProceduralSnake>();
+        
         _healthManager = GetComponent<HealthManager>();
 
         if (_healthManager == null) Debug.LogError("il n'y a pas de HealthManager", gameObject);
     }
 
-    public void Eat() {
-       // Debug.Log("eat");
+    public void Eat(Collider2D other) {
+        Debug.Log($"is player : {gameObject} attack : {other}");
 
+        
+        if (other.CompareTag("Bonus")) {
+            proceduralSnake.AddBodyPart();
+            return;
+        }
+        
+        
         _healthManager.IncreaseHealth();
     }
 

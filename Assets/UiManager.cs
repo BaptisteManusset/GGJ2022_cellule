@@ -7,16 +7,17 @@ public class UiManager : MonoBehaviour {
     [SerializeField] private Image healthBar;
     [Space, SerializeField] private GameObject gameOver;
 
-    private void Awake() {
-        _playerHealth.OnHealthChange += PlayerHealthChange;
-        _playerHealth.OnDead += PlayerHealthChange;
+    private void Start() {
+        _playerHealth = Player.Instance._healthManager;
+        // _playerHealth.OnHealthChange += PlayerHealthChange;
+        // _playerHealth.OnDead += PlayerHealthChange;
         _playerHealth.OnDead += () => { gameOver.SetActive(true); };
 
 
         gameOver.SetActive(false);
     }
 
-    private void PlayerHealthChange() {
+    private void FixedUpdate() {
         healthBar.fillAmount = _playerHealth.GetHealth() / _playerHealth.maxHealth;
     }
 }

@@ -1,13 +1,13 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[DisallowMultipleComponent]
-public class Bouche : MonoBehaviour {
+public class Pique : MonoBehaviour {
     private Mob _me;
-    private BoxCollider2D _boxCollider2D;
+    private Collider2D _boxCollider2D;
 
     private void Awake() {
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        _boxCollider2D = GetComponent<Collider2D>();
         _boxCollider2D.isTrigger = true;
 
 
@@ -24,16 +24,6 @@ public class Bouche : MonoBehaviour {
         Mob attacked = other.GetComponent<Mob>() ?? other.GetComponentInParent<Mob>();
         if (attacked == null) return; // si l'attaqué existe
         if (attacked.team == _me.team) return; // si l'attaqué n'est pas dans la meme team que moi
-        if (_me.IsComestible(attacked.type) == false) return; // si l'attaqué est comestible pour moi
-
-
-        attacked._healthManager.TakeDamage(1, _me);
-
-
-        if (!_me.isPlayer) return;
-
-        attacked.GetComponent<BonusContainer>()?.Action();
-
-        // _me.Eat(other);
+        attacked._healthManager.TakeDamage(2, _me);
     }
 }

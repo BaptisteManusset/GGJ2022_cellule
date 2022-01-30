@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 1497899893791126027}
   - component: {fileID: 9106350253109362208}
   - component: {fileID: 6877926718352407791}
-  - component: {fileID: 189914322}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: Increase
   m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,10 +77,10 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.018987417, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.6643876, g: 0.735849, b: 0.6629583, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -100,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736dadaa470e6594b89b7a63c3f19d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomSize: 0
+  _bonus: {fileID: 11400000, guid: 9eb86f91830530b4a98f560416fc8b1c, type: 2}
 --- !u!58 &7727990614873449898
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,22 +153,6 @@ MonoBehaviour:
   currentHealth: -1
   maxHealth: 10
 --- !u!114 &6877926718352407791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727990614873449902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c391e60865a09045be6e3ce7f7b9a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayer: 0
-  type: 1
-  team: 2
-  Regime: 2
---- !u!114 &189914322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
