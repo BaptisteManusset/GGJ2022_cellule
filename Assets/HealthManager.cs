@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.SymbolStore;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,6 +41,8 @@ public class HealthManager : MonoBehaviour, IDamageable {
         return currentHealth;
     }
 
+    public bool IsDead() => _alreadyDead;
+    
     public void SetMaxHealth(float value) {
         currentHealth = maxHealth = value;
     }

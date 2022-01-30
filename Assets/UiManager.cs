@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,8 @@ public class UiManager : MonoBehaviour {
 
     [SerializeField] private Image healthBar;
     [Space, SerializeField] private GameObject gameOver;
+
+    [Space, SerializeField] private TMP_Text score;
 
     private void Start() {
         _playerHealth = Player.Instance._healthManager;
@@ -19,5 +22,7 @@ public class UiManager : MonoBehaviour {
 
     private void FixedUpdate() {
         healthBar.fillAmount = _playerHealth.GetHealth() / _playerHealth.maxHealth;
+
+        score.text = $"Score: {Manager.Instance.Score} ADN";
     }
 }

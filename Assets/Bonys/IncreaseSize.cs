@@ -6,6 +6,7 @@ namespace Bonys {
     public class IncreaseSize : Bonus {
         public override void Action() {
             base.Action();
+            Manager.IncreaseScore(13);
             Player.Instance.IncreaSize();
         }
     }

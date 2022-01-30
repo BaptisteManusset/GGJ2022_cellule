@@ -5,6 +5,12 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 public class Player : MonoBehaviour {
+    private int speedBonus = 2;
+
+    public void IncreaseSpeedBonus() {
+        speedBonus++;
+    }
+
     private Rigidbody2D _rb;
     [SerializeField, Range(0, 50)] private float force = 10;
 
@@ -25,6 +31,11 @@ public class Player : MonoBehaviour {
     private Vector2 direction;
 
     void Update() {
+        if (Manager.Instance.gameOver) {
+            enabled = false;
+            return;
+        }
+
         direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -33,7 +44,7 @@ public class Player : MonoBehaviour {
 
 
         if (Input.GetAxis("Vertical") > 0) {
-            _rb.AddForce(transform.right * force * Time.deltaTime * 10, ForceMode2D.Force);
+            _rb.AddForce(transform.right * force * Time.deltaTime * 10 * (speedBonus * .5f), ForceMode2D.Force);
         }
     }
 

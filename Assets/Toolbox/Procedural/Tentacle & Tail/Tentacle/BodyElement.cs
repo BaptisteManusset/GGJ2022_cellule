@@ -1,6 +1,4 @@
-﻿using System;
-using Toolbox.Procedural.Tentacle;
-using UnityEngine;
+﻿using UnityEngine;
 
 [DisallowMultipleComponent]
 public class BodyElement : MonoBehaviour {

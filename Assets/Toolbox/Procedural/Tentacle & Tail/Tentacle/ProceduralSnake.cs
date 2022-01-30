@@ -53,24 +53,21 @@ namespace Toolbox.Procedural.Tentacle {
 
         [ContextMenu("AddBodyPart")]
         public void AddBodyPart(TypeOfBodyPart pick = TypeOfBodyPart.normal) {
-
             GameObject bodyPart;
             switch (pick) {
                 default:
                     bodyPart = bodyPartPrefab;
                     break;
                 case TypeOfBodyPart.pick:
-                    
+
                     bodyPart = bodyPartWithPiquePrefab;
                     break;
                 case TypeOfBodyPart.nageoire:
                     bodyPart = bodyPartWithNageoirePrefab;
                     break;
             }
-            
-            
-            
-            
+
+
             var g = Instantiate(bodyPart, transform);
             var bp = g.GetComponent<BodyElement>();
             bodyParts.Add(bp);
@@ -90,6 +87,8 @@ namespace Toolbox.Procedural.Tentacle {
             }
 
             bodyParts[0].target = transform;
+            lineRenderer.positionCount = _segmentV.Count;
+
         }
 
         private void LateUpdate() {
@@ -106,7 +105,6 @@ namespace Toolbox.Procedural.Tentacle {
 
                 bodyParts[i - 1].transform.position = _segmentPoses[i];
             }
-
             lineRenderer.SetPositions(_segmentPoses.ToArray());
         }
 

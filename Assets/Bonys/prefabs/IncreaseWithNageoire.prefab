@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9106350253109362208}
   - component: {fileID: 6877926718352407791}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: IncreaseWithNageoire
   m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.018987417, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.08235291, g: 0.79187757, b: 0.9137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomSize: 0
-  _bonus: {fileID: 11400000, guid: d4f8a1c572daa6840b3ae21e178cc728, type: 2}
+  _bonus: {fileID: 11400000, guid: 6e3ff2376feaaf0429bf585fb41d061e, type: 2}
 --- !u!58 &7727990614873449898
 CircleCollider2D:
   m_ObjectHideFlags: 0
