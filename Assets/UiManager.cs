@@ -23,6 +23,6 @@ public class UiManager : MonoBehaviour {
     private void FixedUpdate() {
         healthBar.fillAmount = _playerHealth.GetHealth() / _playerHealth.maxHealth;
 
-        score.text = $"Score: {Manager.Instance.Score} ADN";
+        score.text = $"{Manager.Instance.Score} DNA";
     }
 }

@@ -14,7 +14,15 @@ public class Player : MonoBehaviour {
     private Rigidbody2D _rb;
     [SerializeField, Range(0, 50)] private float force = 10;
 
-    public static Player Instance;
+    private static Player _instance;
+
+    public static Player Instance {
+        get {
+            _instance = FindObjectOfType<Player>();
+
+            return _instance;
+        }
+    }
 
     [HideInInspector] public HealthManager _healthManager;
     private ProceduralSnake proceduralSnake;
@@ -23,18 +31,28 @@ public class Player : MonoBehaviour {
         proceduralSnake = GetComponentInChildren<ProceduralSnake>();
 
         _healthManager = GetComponent<HealthManager>();
-        Instance = this;
         _rb = GetComponent<Rigidbody2D>();
     }
 
     public float rotationSpeed = 25;
     private Vector2 direction;
 
-    void Update() {
-        if (Manager.Instance.gameOver) {
-            enabled = false;
-            return;
+    private void Start() {
+        Collider2D[] slt = Physics2D.OverlapCircleAll(transform.position, 10);
+        for (int i = slt.Length - 1; i >= 0; i--) {
+            if (slt[i].GetComponent<Ennemy>()) Destroy(slt[i]);
         }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawSphere(transform.position,10);
+    }
+
+
+    void Update() {
+        if (Manager.Instance.mainMenu) return;
+        if (Manager.Instance.gameOver)
+            return;
 
         direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 

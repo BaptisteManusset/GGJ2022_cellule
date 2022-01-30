@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Bonys;
+using Cinemachine;
 using UnityEditor;
 using UnityEngine;
 
@@ -33,6 +34,12 @@ namespace Toolbox.Procedural.Tentacle {
         public GameObject bodyPartPrefab;
         public GameObject bodyPartWithPiquePrefab;
         public GameObject bodyPartWithNageoirePrefab;
+
+        private CinemachineTargetGroup _targetGroup;
+
+        private void Awake() {
+            _targetGroup = FindObjectOfType<CinemachineTargetGroup>();
+        }
 
         private void Start() {
             _length = bodyParts.Count;
@@ -75,6 +82,7 @@ namespace Toolbox.Procedural.Tentacle {
             _segmentV.Add(Vector3.zero);
 
             SetBodyParts();
+            _targetGroup.AddMember(g.transform, .1f, 1);
         }
 
 
@@ -88,7 +96,6 @@ namespace Toolbox.Procedural.Tentacle {
 
             bodyParts[0].target = transform;
             lineRenderer.positionCount = _segmentV.Count;
-
         }
 
         private void LateUpdate() {
@@ -105,6 +112,7 @@ namespace Toolbox.Procedural.Tentacle {
 
                 bodyParts[i - 1].transform.position = _segmentPoses[i];
             }
+
             lineRenderer.SetPositions(_segmentPoses.ToArray());
         }
 

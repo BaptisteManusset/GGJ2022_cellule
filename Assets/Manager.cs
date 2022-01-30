@@ -1,22 +1,24 @@
+using System;
 using UnityEngine;
 
 public class Manager : MonoBehaviour {
-    public static Manager Instance;
+    // private static Manager _instance;
 
+    public static Manager Instance;
     private Spawner _spawner;
 
     public bool gameOver = false;
+    public bool mainMenu = true;
 
+   
     public int Score = 0;
 
     private void Awake() {
+        Instance = this;
         Player.Instance._healthManager.OnDead += GameOver;
 
-        _spawner = GetComponent<Spawner>();
-        Instance = this;
+        _spawner = FindObjectOfType<Spawner>();
         Score = 0;
-        Time.timeScale = 1;
-
     }
 
     private void GameOver() {
