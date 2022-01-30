@@ -16,6 +16,8 @@ public class HealthManager : MonoBehaviour, IDamageable {
     private bool _alreadyDead;
 
 
+    public bool playVfx = false;
+
     public enum Team {
         player = 0,
         ennemy = 1,
@@ -42,7 +44,7 @@ public class HealthManager : MonoBehaviour, IDamageable {
     }
 
     public bool IsDead() => _alreadyDead;
-    
+
     public void SetMaxHealth(float value) {
         currentHealth = maxHealth = value;
     }
@@ -58,6 +60,8 @@ public class HealthManager : MonoBehaviour, IDamageable {
 
         if (currentHealth <= 0)
             if (!_alreadyDead) {
+                if (playVfx) VFXManager.Instance.SpawnDeath(transform);
+
                 OnDead?.Invoke();
                 _alreadyDead = true;
             }
@@ -65,6 +69,10 @@ public class HealthManager : MonoBehaviour, IDamageable {
 
     public bool TakeDamage(float value, Mob agressor) {
         rb.PunchOnCollision(agressor.transform);
+
+        Debug.Log(VFXManager.Instance + "  " + transform);
+        if (playVfx) VFXManager.Instance.SpawnDamage(transform);
+
         SetHealth(currentHealth - value);
         return true;
     }

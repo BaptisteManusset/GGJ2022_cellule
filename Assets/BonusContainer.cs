@@ -29,8 +29,10 @@ public class BonusContainer : MonoBehaviour {
     }
 
     public void Action() {
-        if (_bonus)
+        if (_bonus) {
             _bonus.Action();
+            VFXManager.Instance.SpawnBonus(transform);
+        }
     }
 
     public void TakeDamage() {

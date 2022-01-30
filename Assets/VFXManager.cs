@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class VFXManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class VFXManager : MonoBehaviour {
+    public GameObject damage;
+    [SerializeField] private AudioClip damageSound;
+
+    public GameObject death;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip bonusSound;
+
+    public static VFXManager Instance;
+
+    private void Awake() {
+        Instance = GetComponent<VFXManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void SpawnDamage(Transform position) {
+        Debug.Log("Damage " + AudioManager.Instance);
+        Instantiate(damage, position.position, quaternion.identity, position);
+        AudioManager.Instance.PlaySound(damageSound);
+    }
+
+    public void SpawnDeath(Transform position) {
+        Debug.Log("Death " + AudioManager.Instance);
+        Instantiate(death, position.position, quaternion.identity, position);
+        AudioManager.Instance.PlaySound(deathSound);
+    }
+    public void SpawnBonus(Transform position) {
         
+        AudioManager.Instance.PlaySound(bonusSound);
     }
 }

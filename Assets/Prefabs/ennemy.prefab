@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: -1
   maxHealth: 1
+  playVfx: 1
 --- !u!1001 &3597133324725492009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -417,8 +418,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1746709398829007940}
     m_Modifications:
     - target: {fileID: 6094953535723266232, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094953535723266232, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
       propertyPath: moveWithTransform
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094953535723266232, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094953535723266232, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6094953535723266232, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -434,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094953535723266233, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6094953535723266233, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -442,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094953535723266233, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.327
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 6094953535723266233, guid: 800bb996b70ff164ba34bf2dfe8a3bd4, type: 3}
       propertyPath: m_LocalRotation.w
