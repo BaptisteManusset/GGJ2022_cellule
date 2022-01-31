@@ -10,11 +10,13 @@ public class Manager : MonoBehaviour {
     public bool gameOver = false;
     public bool mainMenu = true;
 
-   
+
     public int Score = 0;
 
     private void Awake() {
         Instance = this;
+
+        Debug.Log($"{Player.Instance} >> {Player.Instance._healthManager}");
         Player.Instance._healthManager.OnDead += GameOver;
 
         _spawner = FindObjectOfType<Spawner>();

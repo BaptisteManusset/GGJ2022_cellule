@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8517652957519474249}
   - component: {fileID: 4854457154281517952}
   - component: {fileID: 6313367214206892528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Isometric Diamond (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4275318089856611162}
   - component: {fileID: 5926831580708350590}
   - component: {fileID: 1974240463306756121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: body part pick
   m_TagString: Body
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 5174939189141899720}
   - component: {fileID: 5739114727741473887}
   - component: {fileID: 5607542925509371564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Isometric Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}

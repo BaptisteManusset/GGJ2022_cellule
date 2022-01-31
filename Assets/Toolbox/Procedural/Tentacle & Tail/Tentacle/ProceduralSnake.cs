@@ -58,7 +58,15 @@ namespace Toolbox.Procedural.Tentacle {
             SetBodyParts();
         }
 
+        [ContextMenu("AddBodyPartPick")]
+        public void AddBodyPartPick() => AddBodyPart(TypeOfBodyPart.pick);
+
         [ContextMenu("AddBodyPart")]
+        public void AddBodyPart() => AddBodyPart(TypeOfBodyPart.normal);
+
+        [ContextMenu("AddBodyNageoire")]
+        public void AddBodyNageoire() => AddBodyPart(TypeOfBodyPart.nageoire);
+
         public void AddBodyPart(TypeOfBodyPart pick = TypeOfBodyPart.normal) {
             GameObject bodyPart;
             switch (pick) {
@@ -82,7 +90,7 @@ namespace Toolbox.Procedural.Tentacle {
             _segmentV.Add(Vector3.zero);
 
             SetBodyParts();
-            _targetGroup.AddMember(g.transform, .1f, 1);
+            _targetGroup.AddMember(g.transform, .1f, 5);
         }
 
 

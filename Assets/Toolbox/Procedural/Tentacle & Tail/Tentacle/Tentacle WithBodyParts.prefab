@@ -144,11 +144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDir: {fileID: 8422750257766703688}
-  targetDist: 1.3
+  targetDist: 1
   smoothSpeed: 0.001
   lineRenderer: {fileID: 8422750257237737352}
   bodyParts: []
-  bodyPartPrefab: {fileID: 0}
+  bodyPartPrefab: {fileID: 6409558438938605039, guid: 7425745f5e26f7e44bec9a841f3485e1, type: 3}
+  bodyPartWithPiquePrefab: {fileID: 6409558438938605039, guid: 9f0958313a4ddd8459318afe1c7708cf, type: 3}
+  bodyPartWithNageoirePrefab: {fileID: 6409558438938605039, guid: c1e76266b4ee15c4da5ee1c5fb9d2943, type: 3}
 --- !u!1 &8422750257766703691
 GameObject:
   m_ObjectHideFlags: 0

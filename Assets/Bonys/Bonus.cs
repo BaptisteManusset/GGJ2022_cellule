@@ -4,7 +4,6 @@ using UnityEngine;
 namespace Bonys {
     public class Bonus : ScriptableObject {
         public virtual void Action() {
-            Debug.Log("Action");
         }
     }
 

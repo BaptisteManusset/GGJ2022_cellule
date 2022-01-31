@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377102282319869803}
   - component: {fileID: 1872231290343295737}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4275318089856611162}
   - component: {fileID: 5926831580708350590}
   - component: {fileID: 1974240463306756121}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: body part nagoire
   m_TagString: Body
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6939642541850157815}
   - component: {fileID: 6539293844447960986}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

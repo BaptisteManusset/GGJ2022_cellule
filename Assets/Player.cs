@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public static Player Instance {
         get {
             _instance = FindObjectOfType<Player>();
-
+            _instance._healthManager = _instance.GetComponent<HealthManager>();
             return _instance;
         }
     }
@@ -30,7 +30,6 @@ public class Player : MonoBehaviour {
     private void Awake() {
         proceduralSnake = GetComponentInChildren<ProceduralSnake>();
 
-        _healthManager = GetComponent<HealthManager>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -43,11 +42,6 @@ public class Player : MonoBehaviour {
             if (slt[i].GetComponent<Ennemy>()) Destroy(slt[i]);
         }
     }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawSphere(transform.position,10);
-    }
-
 
     void Update() {
         if (Manager.Instance.mainMenu) return;
@@ -65,12 +59,6 @@ public class Player : MonoBehaviour {
             _rb.AddForce(transform.right * force * Time.deltaTime * 10 * (speedBonus * .5f), ForceMode2D.Force);
         }
     }
-
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Bonus")) { }
-    }
-
     public void IncreaSize(TypeOfBodyPart pick = TypeOfBodyPart.normal) {
         proceduralSnake.AddBodyPart(pick);
     }
