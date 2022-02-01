@@ -91,6 +91,8 @@ namespace Toolbox.Procedural.Tentacle {
 
             SetBodyParts();
             _targetGroup.AddMember(g.transform, .1f, 5);
+
+            _targetGroup.m_Targets[0].radius = 5 + bodyParts.Count * .5f;
         }
 
 

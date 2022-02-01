@@ -1,4 +1,6 @@
+using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +21,8 @@ public class UiManager : MonoBehaviour {
 
         gameOver.SetActive(false);
     }
+
+
 
     private void FixedUpdate() {
         healthBar.fillAmount = _playerHealth.GetHealth() / _playerHealth.maxHealth;
