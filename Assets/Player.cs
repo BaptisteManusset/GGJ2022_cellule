@@ -2,6 +2,7 @@ using System;
 using Bonys;
 using Toolbox.Procedural.Tentacle;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [DisallowMultipleComponent]
 public class Player : MonoBehaviour {
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour {
             _rb.AddForce(transform.right * force * Time.deltaTime * 10 * (speedBonus * .5f), ForceMode2D.Force);
         }
     }
+
     public void IncreaSize(TypeOfBodyPart pick = TypeOfBodyPart.normal) {
         proceduralSnake.AddBodyPart(pick);
     }

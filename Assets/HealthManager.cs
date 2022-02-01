@@ -70,7 +70,6 @@ public class HealthManager : MonoBehaviour, IDamageable {
     public bool TakeDamage(float value, Mob agressor) {
         rb.PunchOnCollision(agressor.transform);
 
-        Debug.Log(VFXManager.Instance + "  " + transform);
         if (playVfx) VFXManager.Instance.SpawnDamage(transform);
 
         SetHealth(currentHealth - value);

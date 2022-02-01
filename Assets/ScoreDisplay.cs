@@ -1,15 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour {
-    private TMP_Text text;
+    private TMP_Text _text;
 
     private void OnEnable() {
-        text = GetComponent<TMP_Text>();
+        _text = GetComponent<TMP_Text>();
 
-        text.text = $"You have acquired {Manager.Instance.Score} DNA";
+        _text.text =
+            @$"You have acquired
+<size=200%>{Manager.Instance.Score} DNA</size>";
     }
 }
